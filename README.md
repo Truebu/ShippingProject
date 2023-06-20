@@ -2,6 +2,13 @@
 
 Esta API tiene como objetivo consultar el esquema de envios record que permita crear, editar y visualizar las tablas relacionadas.
 
+## Ejecutar proyecto
+
+Puede ejecutar el proyecto por medio de 
+
+```shell
+docker-compose up -d
+```
 ## Vehiculos
 
 Gestiona los vehiculos almacenados.
