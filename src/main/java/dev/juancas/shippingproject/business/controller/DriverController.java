@@ -23,7 +23,7 @@ public class DriverController {
     }
 
     @PostMapping("/newDriver")
-    public ResponseEntity<MessageDto> newDriver(@Valid @RequestBody SaveDriverDto dto){
+    public ResponseEntity<MessageDto> newDriver(@RequestBody SaveDriverDto dto){
         return driverService.newDriver(dto);
     }
 

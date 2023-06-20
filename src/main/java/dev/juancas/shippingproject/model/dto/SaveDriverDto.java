@@ -7,6 +7,7 @@ import lombok.*;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class SaveDriverDto {
 
     @NotBlank(message = "La identificación es obligatoria")
