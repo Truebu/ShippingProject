@@ -17,7 +17,7 @@ services:
     networks:
       - shipping
   shipping-be:
-      image: truebu/shipping-be:1.1
+      image: truebu/shipping-be:1.2
       container_name: shipping-be
       restart: unless-stopped
       ports:
