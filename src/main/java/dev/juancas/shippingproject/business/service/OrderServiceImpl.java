@@ -3,6 +3,7 @@ package dev.juancas.shippingproject.business.service;
 import dev.juancas.shippingproject.business.exception.ApiRequestException;
 import dev.juancas.shippingproject.model.dto.MessageDto;
 import dev.juancas.shippingproject.model.dto.NewOrderDto;
+import dev.juancas.shippingproject.model.dto.OrdersDto;
 import dev.juancas.shippingproject.model.entities.Driver;
 import dev.juancas.shippingproject.model.entities.Order;
 import dev.juancas.shippingproject.model.repositories.OrderRepository;
@@ -11,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -34,4 +37,21 @@ public class OrderServiceImpl implements OrderService{
             throw new ApiRequestException("Hubo un error al recuperar los vehiculos");
         }
     }
+
+    @Override
+    public ResponseEntity<List<OrdersDto>> showOrders() {
+        List<OrdersDto> ordersDtos = new ArrayList<>();
+        try {
+            List<Order> orders = orderRepository.findAll();
+            for (Order order:
+                 orders) {
+                ordersDtos.add(new OrdersDto(order));
+            }
+            return new ResponseEntity<>(ordersDtos, HttpStatus.OK);
+        }catch (ApiRequestException e){
+            throw new ApiRequestException("Hubo un error al recuperar los conductores");
+        }
+    }
+
+
 }

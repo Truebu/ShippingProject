@@ -14,11 +14,13 @@ public class VehicleDto {
     private String modelo;
     private String placa;
     private String capacidad;
+    private String conductor;
 
     public VehicleDto(Vehicle vehicle) {
         this.id = vehicle.getId();
         this.modelo = vehicle.getModelo();
         this.placa = vehicle.getPlaca();
         this.capacidad = vehicle.getCapacidad();
+        this.conductor = vehicle.getDriver() == null? null: vehicle.getDriver().getIdentificacion();
     }
 }

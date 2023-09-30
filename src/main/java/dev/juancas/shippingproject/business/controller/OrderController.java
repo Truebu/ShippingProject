@@ -3,9 +3,12 @@ package dev.juancas.shippingproject.business.controller;
 import dev.juancas.shippingproject.business.service.OrderService;
 import dev.juancas.shippingproject.model.dto.MessageDto;
 import dev.juancas.shippingproject.model.dto.NewOrderDto;
+import dev.juancas.shippingproject.model.dto.OrdersDto;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -20,4 +23,8 @@ public class OrderController {
         return orderService.makeOrder(dto);
     }
 
+    @GetMapping("/get")
+    public ResponseEntity<List<OrdersDto>> showOrders(){
+        return orderService.showOrders();
+    }
 }
